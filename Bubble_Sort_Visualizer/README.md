@@ -1,5 +1,5 @@
 # What is This ?
-Before our first day in office, we were asked to develop something unique using Javascript, HTML and CSS. I developed a visualization of the bubble sort algorithm on an array of 10 elements arranged in descending order.
+Before our first day in office at [FusionCharts](https://www.fusioncharts.com/), we were asked to develop something unique using Javascript, HTML and CSS. I developed a visualization of the bubble sort algorithm on an array of 10 elements arranged in descending order.
 ![](FC_buuble_sort_viz.gif)
 
 # How to preview it ?
