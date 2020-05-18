@@ -1,0 +1,82 @@
+<html>
+    <head>
+        <title>Bubble Sort Visualizer</title>
+        
+        <style type="text/css">
+            #canvas
+            {
+                border: #305630 3px solid;
+            }
+        </style>
+    </head>
+    <body onload="bubblesort(0)">
+        <center>
+            <div id="canvas">
+                <h1><font style="face:sans-serif">BUBBLE SORT VISUALIZED</font></h1>
+                <canvas id="innerCanvas" width="1000px" height="600px"></canvas>
+            </div>
+        </center>
+        
+        <script type="text/javascript" language="javascript">
+            //Global Array
+            var arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+            
+            function bubblesort(i)
+            {
+                //Draw the array
+                draw(arr, 0, arr.length-i);
+                
+                //Run the inner loop of the bubble sort
+                setTimeout(bubblesortInner, 1000, 0, i);
+                
+                //Run the outer loop of the bubble sort
+                i++;
+                if(i < arr.length)
+                    //Recursively calls itself after specified seconds. Wait for more than 500ms so that the canvas can be redrawn with the first value selected
+                    setTimeout(bubblesort, (arr.length-i+1)*600, i);
+            }
+            
+            function bubblesortInner(j, i)
+            {
+                if(j < arr.length-i-1)
+                {
+                    var flag = 0;
+                    if(arr[j] > arr[j+1])
+                    {
+                        var temp = arr[j];
+                        arr[j] = arr[j+1];
+                        arr[j+1] = temp;
+                        flag = 1;
+                    }
+                    if(flag == 1)
+                        draw(arr, j+1, arr.length-i);
+                    else
+                        draw(arr, j, arr.length-i);
+                    j++;
+                    setTimeout(bubblesortInner, 500, j, i);
+                }
+            }
+            
+            function draw(arr, j, k)
+            {
+                var canvas = document.getElementById("innerCanvas");
+                var ctx = canvas.getContext("2d");
+                ctx.clearRect(0, 0, 1000, 600);
+                
+                ctx.font = "30px Verdana";
+                //ctx.fillStyle = 'blue';
+                
+                for(var i=0;i<arr.length;i++)
+                {
+                    ctx.rect(200+(i*60), 250, 60, 50);
+                    if(i == j || i >= k)
+                        ctx.fillStyle = 'red';
+                    else
+                        ctx.fillStyle = 'blue';
+                    ctx.fillText(arr[i], 200+(i*60)+15, 285);
+                }
+                ctx.stroke();
+            }
+        </script>
+    </body>
+</html>
