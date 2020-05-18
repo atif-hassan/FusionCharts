@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Polynomial Regression</title>
+		<style>
+			canvas{
+				margin-left: 350px;
+				position: absolute;
+			}
+
+			div{
+				position: absolute;
+				margin-left: 20px;
+				font-family: sans-serif;
+				font-size: 20px;
+			}
+
+			#select{
+				position: absolute;
+				margin-left: 20px;
+				font-family: sans-serif;
+				font-size: 20px;
+				margin-top: 230px;
+			}
+		</style>
+	</head>
+
+	<body style="margin:0px;padding:0px;">
+		<div id="Details">
+			</br><u><strong>SELECTED : </strong></u></br></br></br><strong><u>ERRORS:</u></strong></br>Linear : </br>Polynomial : </br>Exponential :
+		</div>
+		<div id="select">
+			<u><strong>REDRAW</strong></u></br>
+			<input type="checkbox" name="regression" value="Linear" onchange="init()">Linear<br>
+			<input type="checkbox" name="regression" value="Polynomial" onchange="init()"> Polynomial<br>
+			<input type="checkbox" name="regression" value="Exponential" onchange="init()"> Exponential<br>
+		</div>
+		<canvas id="canvas" width="900px" height="600px" style="border:2px solid black"></canvas>
+	<script src="Non-Linear Regression.js"></script>
+	</body>
+</html>
